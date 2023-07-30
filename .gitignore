@@ -1,0 +1,7 @@
+node_modules
+venv
+db.sqlite3
+package-lock.json
+*.pyc
+output.css
+static/CACHE/css/output.02957b729983.css
