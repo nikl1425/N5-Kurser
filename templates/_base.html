@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django + Tailwind CSS + Flowbite</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
 </head>
 
@@ -47,8 +48,11 @@
       </nav>
     </header>
     
-    
-    <main class="container mx-auto mt-4 grow">
+    <div class="relative -z-10">
+        <div class="absolute bg-emerald-400 w-full h-[36rem]"></div>
+    </div>
+
+    <main class="container mx-auto grow">
         {% block content %}
         {% endblock content %}
     </main>
