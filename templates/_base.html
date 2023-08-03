@@ -31,7 +31,7 @@
                 <a href="#" class="block py-2 pl-3 pr-4 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">Hjem</a>
               </li>
               <li>
-                <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Kurser</a>
+                <a href="/courses" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Kurser</a>
               </li>
               <li>
                 <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Ressourcer</a>
@@ -48,10 +48,12 @@
       </nav>
     </header>
     
+    {% if request.path == "/" %} <!-- Only show banner if landing page -->
     <div class="relative -z-10">
         
          <div class="absolute w-full bg-center bg-cover h-[36rem] bg-slate-600 bg-blend-multiply bg-[url(/static/assets/bg-banner.jpg)]" alt=""> </div>
     </div>
+    {% endif %}
 
     <main class="container mx-auto grow">
         {% block content %}
