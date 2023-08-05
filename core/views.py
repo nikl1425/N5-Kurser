@@ -1,9 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
-def index(request):
-    return render(request, "index.html")
+from django.views import View
 
-def courses(request):
-    return render(request, "courses.html")
+
+
+# Create your views here
+
+class IndexView(View):
+    template_name = "index.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+class CourseView(View):
+    def get(self, request):
+        return render(request, "courses.html")
+
+
+
+
+    
 
