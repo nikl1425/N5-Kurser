@@ -16,7 +16,9 @@
           <div
             class="border-2 border-slate-200 focus:border-slate-200 rounded-lg flex"
           >
-            <span class="ps-1 material-icons md-24 text-green-400 my-auto"> search </span>
+            <span class="ps-1 material-icons md-24 text-green-400 my-auto">
+              search
+            </span>
             <input
               class="py-2 ms-0 ps-1 font-semibold placeholder-gray-400 w-64 border-none font-sans rounded-lg focus:outline-none focus:ring focus:ring-emerald-300"
               type="text"
@@ -38,29 +40,58 @@
   <div></div>
 </section>
 
+<section class="mt-12 lg:px-6 lg:max-w-7xl lg:mx-auto">
+  <div class="flex lg:flex-row flex-col">
+    <!-- COURSE FILTERING SECTION -->
 
-<section class="mt-12">
-    <div class="flex flex-row lg:flex-col">
-
-        <!-- COURSE FILTERING SECTION -->
-
-        <div class="flex md:hidden">
-            <!-- mobile -->
-            <h1>mobile</h1>
-        </div>
-
-        <div class="hidden md:flex">
-            <!-- Ipad and beyond -->   
-            <h1>desktop</h1>
-        </div>
-
-        <!-- COURSE LIST SECTION -->
-        <div>
-
-        </div>
+    <div class="flex md:hidden">
+      <!-- mobile -->
+      <h1>mobile</h1>
     </div>
 
+    <div class="hidden md:flex flex-col rounded-lg px-7 shrink-0">
+      <!-- Ipad and beyond -->
+      {% if categories %}
+      <h4 class="text-base font-semibold text-slate-600 pb-2">Kategori</h4>
+      <ul class="ps-4">
+        {% for cat in categories %}
+        <li class="text-base text-gray-400 font-normal">
+          <input
+            class="rounded-md border-2 border-slate-400"
+            type="checkbox"
+            name=""
+            id="{{cat.id}}"
+          />
+          <label for="{{cat.id}}">{{cat.Name}}</label>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
 
+    <!-- COURSE LIST SECTION -->
+    <div class="grow">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 py-5">
+        <!-- Product Card -->
+        {% if courses %} 
+            {% for course in courses %}
+                <div class="shadow-xl py-4 px-4 rounded-lg ">
+                    <div class="">
+
+                    </div>
+                    <h1 class="font-bold text-slate-700 my-2 text-lg">{{course.Name}}</h1>
+                    <span class="text-sm text-emerald-600 font-semibold">{{course.Author}}</span>
+                    <div class="mt-2 py-1 max-h-24">
+                        <p class=" font-normal line-clamp-3 text-gray-500 text-sm">{{course.Description}}</p>
+                    </div>
+                    
+                    
+                </div>
+            {% endfor %}
+         {% endif %}
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="">

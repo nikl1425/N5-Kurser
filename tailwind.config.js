@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: [
     require('flowbite/plugin'),
-    'prettier-plugin-tailwindcss'
+    'prettier-plugin-tailwindcss',
+    '@tailwindcss/line-clamp'
   ],
 }

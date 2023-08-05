@@ -5,7 +5,12 @@ from .models import Course, CourseCategory
 
 
 # Helper Functions
+def unique_category_identifier(categories):
+    for c in categories:
+        name = "cat_" + c.Name
+        c.id = name
 
+    return categories
 
 
 
@@ -24,7 +29,7 @@ class IndexView(View):
 class CourseView(View):
     def get(self, request):
         courses = Course.objects.order_by("-Created")
-        course_categories = CourseCategory.objects.all()
+        course_categories = unique_category_identifier(CourseCategory.objects.all())
 
         context = {
             "courses": courses,
