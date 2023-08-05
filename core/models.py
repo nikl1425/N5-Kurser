@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxLengthValidator, MinLengthValidator
+from django.conf import settings
 import datetime
 
 LANG = [
@@ -38,7 +39,7 @@ class Course(models.Model):
     Name = models.CharField(max_length=MAX_SMALL_DEFAULT)
     Description = models.TextField(max_length=MAX_LONG_DEFAULT)
     Author = models.ForeignKey(User, on_delete=models.CASCADE)
-    Image = models.ImageField(upload_to="media/courses/")
+    Image = models.ImageField(upload_to=settings.MEDIA_ROOT)
     Created = models.DateField(default=datetime.date.today)
     Category = models.ForeignKey(CourseCategory, on_delete=models.CASCADE, null=True)
     Lang = models.CharField(choices=LANG, max_length=2, default="DK")
