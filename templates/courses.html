@@ -1,9 +1,45 @@
-{% extends "_base.html" %}
-{% load static %}
-{% block content %}
+{% extends "_base.html" %} {% load static %} {% block content %}
+
+<section>
+  <div class="mx-auto max-w-screen-xl text-center bg-white py-20">
+    <h1
+      class="text-4xl lg:text-5xl text-slate-700 font-bold tracking-tight py-2"
+    >
+      Kursus Overblik
+    </h1>
+    <h2 class="text-lg font-medium tracking-normal text-gray-400 py-2">
+      Opdag en verden af spændende kurser - Find dit næste læringseventyr her!
+    </h2>
+    <div class="flex w-full justify-center my-2">
+      <form action="" class="flex flex-row items-center">
+        <div class="me-2">
+          <div
+            class="border-2 border-slate-200 focus:border-slate-200 rounded-lg flex"
+          >
+            <span class="ps-1 material-icons md-24 text-green-400 my-auto"> search </span>
+            <input
+              class="py-2 ms-0 ps-1 font-semibold placeholder-gray-400 w-64 border-none font-sans rounded-lg focus:outline-none focus:ring focus:ring-emerald-300"
+              type="text"
+              name=""
+              id=""
+              placeholder="Søg efter kurser...."
+            />
+          </div>
+        </div>
+        <button
+          type="button"
+          class="focus:outline-none text-white bg-emerald-500 hover:bg-emerald-700 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-base px-5 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        >
+          Søg kurser
+        </button>
+      </form>
+    </div>
+  </div>
+  <div></div>
+</section>
 
 <section class="">
-    
+  <div></div>
 </section>
 
 {% endblock content %}
