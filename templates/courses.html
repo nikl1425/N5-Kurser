@@ -75,9 +75,12 @@
         <!-- Product Card -->
         {% if courses %} 
             {% for course in courses %}
-                <div class="shadow-xl py-4 px-4 rounded-lg ">
+                <div class="shadow-xl py-4 px-4 rounded-lg overflow-hidden">
                     <div class="">
-                        <img src="{{course.Image.url}}" alt="">
+                      <img
+                      src="{{course.Image.url}}"
+                      class="object-cover h-48 w-full"
+                      alt="..." />
                     </div>
                     <h1 class="font-bold text-slate-700 my-2 text-lg">{{course.Name}}</h1>
                     <span class="text-sm text-emerald-600 font-semibold">{{course.Author}}</span>
