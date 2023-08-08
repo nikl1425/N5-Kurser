@@ -45,8 +45,19 @@ class Course(models.Model):
     Lang = models.CharField(choices=LANG, max_length=2, default="DK")
     ProgrammingLang = models.ForeignKey(ProgrammingLanguage, on_delete=models.CASCADE, null=True)
     level = models.IntegerField(choices=LEVEL, default=1)
+    published = models.BooleanField(default=True)
+
     def __str__(self) -> str:
         return self.Name
+    
+    # def save(self, *args, **kwargs):
+    #     try:
+    #         this = Course.objects.get(id=self.id)
+    #         if this.Image:
+    #             this.Image.delete()
+    #     except:
+    #         pass
+    #     super(Course, self).save(*args, **kwargs)
 
 
 class Lesson(models.Model):

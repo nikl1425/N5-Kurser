@@ -40,7 +40,7 @@
   <div></div>
 </section>
 
-<section class="mt-12 lg:px-6 lg:max-w-7xl lg:mx-auto">
+<section class="mt-12 lg:px-6 lg:max-w-8xl lg:mx-auto">
   <div class="flex lg:flex-row flex-col">
     <!-- COURSE FILTERING SECTION -->
 
@@ -70,28 +70,50 @@
     </div>
 
     <!-- COURSE LIST SECTION -->
-    <div class="grow">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 py-5">
+    <div class="grow max-w-5xl mx-auto">
+      <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 py-5">
         <!-- Product Card -->
-        {% if courses %} 
-            {% for course in courses %}
-                <div class="shadow-xl py-4 px-4 rounded-lg overflow-hidden">
-                    <div class="">
-                      <img
-                      src="{{course.Image.url}}"
-                      class="object-cover h-48 w-full"
-                      alt="..." />
-                    </div>
-                    <h1 class="font-bold text-slate-700 my-2 text-lg">{{course.Name}}</h1>
-                    <span class="text-sm text-emerald-600 font-semibold">{{course.Author}}</span>
-                    <div class="mt-2 py-1 max-h-24">
-                        <p class=" font-normal line-clamp-3 text-gray-500 text-sm">{{course.Description}}</p>
-                    </div>
-                    
-                    
-                </div>
-            {% endfor %}
-         {% endif %}
+        {% if courses %} {% for course in courses %}
+        <a id="course_{{course.id}}" href="" published="{{course.published}}">
+          <div
+            class="shadow-xl py-4 px-4 rounded-lg overflow-hidden hover:shadow-inner"
+          >
+            <img
+              src="{{course.Image.url}}"
+              class="object-cover h-48 w-full"
+              alt="..."
+            />
+            <h1 class="font-bold text-slate-700 mt-2 text-lg">
+              {{course.Name}}
+            </h1>
+            <div>
+              <span class="text-sm text-gray-600 font-semibold"
+                >Instruktør:
+              </span>
+              <span class="text-sm text-gray-400 font-base"
+                >{{course.Author}}</span
+              >
+              <span class="text-sm text-gray-600 font-semibold ms-1"
+                >Niveau:
+              </span>
+              {% if course.level == 1 %}
+              <span class="text-sm text-green-500 font-bold">Begynder</span> 
+              {% elif course.level == 2 %}
+              <span class="text-sm">Begynder</span> 
+
+              {% else %}
+              <span class="text-sm">Avanceret</span> 
+
+              {% endif %}
+            </div>
+            <div class="mt-1 max-h-24">
+              <p class="font-normal line-clamp-3 text-gray-500 text-sm">
+                {{course.Description}}
+              </p>
+            </div>
+          </div>
+        </a>
+        {% endfor %} {% endif %}
       </div>
     </div>
   </div>
