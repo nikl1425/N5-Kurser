@@ -1,13 +1,13 @@
 {% extends "_base.html" %} {% load static %} {% block content %}
 
 <section>
-  <div class="mx-auto max-w-screen-xl text-center bg-white py-20">
+  <div class="mx-auto max-w-screen-xl text-center bg-white pt-32 pb-12">
     <h1
-      class="text-4xl lg:text-5xl text-slate-700 font-bold tracking-tight py-2"
+      class="text-4xl lg:text-6xl text-slate-700 font-bold tracking-tight py-2"
     >
       Kursus Overblik
     </h1>
-    <h2 class="text-lg font-medium tracking-normal text-gray-400 py-2">
+    <h2 class="text-lg font-medium tracking-normal text-gray-400 py-3">
       Opdag en verden af spændende kurser - Find dit næste læringseventyr her!
     </h2>
     <div class="flex w-full justify-center my-2">
@@ -40,43 +40,56 @@
   <div></div>
 </section>
 
-<section class="mt-12 lg:px-6 lg:max-w-8xl lg:mx-auto">
+<section class="my-12 lg:px-3 lg:max-w-screen-2xl lg:mx-auto">
   <div class="flex lg:flex-row flex-col">
     <!-- COURSE FILTERING SECTION -->
 
-    <div class="flex md:hidden">
+    <div class="flex lg:hidden">
       <!-- mobile -->
       <h1>mobile</h1>
     </div>
 
-    <div class="hidden md:flex flex-col rounded-lg px-7 shrink-0">
-      <!-- Ipad and beyond -->
-      {% if categories %}
-      <h4 class="text-base font-semibold text-slate-600 pb-2">Kategori</h4>
-      <ul class="ps-4">
-        {% for cat in categories %}
-        <li class="text-base text-gray-400 font-normal">
-          <input
-            class="rounded-md border-2 border-slate-400"
-            type="checkbox"
-            name=""
-            id="{{cat.id}}"
-          />
-          <label for="{{cat.id}}">{{cat.Name}}</label>
-        </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+    <div class="hidden lg:flex flex-col">
+      <div class=" rounded-lg me-3 border-[1px] p-10">
+        <!-- Ipad and beyond -->
+        {% if categories %}
+        <h4 class="text-base font-semibold text-slate-600 pb-1 divide-x">Kategori</h4>
+        <hr class="">
+        <ul class="ps-4">
+          {% for cat in categories %}
+          <li class="text-base text-gray-400 font-normal">
+            <input
+              class="rounded-md border-2 border-slate-400"
+              type="checkbox"
+              name=""
+              id="{{cat.id}}"
+            />
+            <label for="{{cat.id}}">{{cat.Name}}</label>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
     </div>
+    
 
     <!-- COURSE LIST SECTION -->
-    <div class="grow max-w-5xl mx-auto">
-      <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5 py-5">
+    <div class="max-w-xl lg:max-w-screen-lg mx-auto">
+      <div class="min-w-full px-3 rounded-lg flex items-center justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-slate-600">Tilgængelige & fremtidige Kurser</h3>
+          </div>
+          <div>
+            <button>Sort</button>
+          </div>
+      </div>
+
+      <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2  md:gap-4 md:mx-2 lg:grid-cols-3 lg:gap-5 py-5">
         <!-- Product Card -->
         {% if courses %} {% for course in courses %}
         <a id="course_{{course.id}}" href="" published="{{course.published}}">
           <div
-            class="shadow-xl py-4 px-4 rounded-lg overflow-hidden hover:shadow-inner"
+            class="shadow-xl py-2 px-2 rounded-lg overflow-hidden hover:shadow-inner border-[1px]"
           >
             <img
               src="{{course.Image.url}}"
@@ -86,7 +99,7 @@
             <h1 class="font-bold text-slate-700 mt-2 text-lg">
               {{course.Name}}
             </h1>
-            <div>
+            <div class="mb-1">
               <span class="text-sm text-gray-600 font-semibold"
                 >Instruktør:
               </span>
@@ -106,7 +119,8 @@
 
               {% endif %}
             </div>
-            <div class="mt-1 max-h-24">
+            <hr class="my-1">
+            <div class="mt-1 max-h-24 py-1">
               <p class="font-normal line-clamp-3 text-gray-500 text-sm">
                 {{course.Description}}
               </p>
