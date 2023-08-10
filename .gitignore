@@ -6,3 +6,5 @@ package-lock.json
 output.css
 static/CACHE/css/output.02957b729983.css
 */migrations
+client/static/dist
+client/static/CACHE

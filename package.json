@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-tail": "npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css",
-    "watch-tail": "npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch"
+    "build-tail": "npx tailwindcss -i ./client/app/input.css -o ./client/static/dist/output.css",
+    "watch-tail": "npx tailwindcss -i ./client/app/input.css -o ./client/static/dist/output.css --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "prettier": "^3.0.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "webpack": "^5.88.2"
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
